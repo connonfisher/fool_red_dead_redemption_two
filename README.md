@@ -6,6 +6,14 @@
 
 这是一个为荒野大镖客 2（Red Dead Redemption 2）粉丝打造的专属主题应用，包含精心设计的启动动画、主界面和游戏视频播放功能。视频完全内嵌在应用窗口中播放，带来沉浸式体验。
 
+## 应用截图
+
+### 启动动画
+![启动动画](assets/images/screenshots/launch_animation.png)
+
+### 主界面
+![主界面](assets/images/screenshots/main_screen.png)
+
 ## 功能特性
 
 ### 🎬 启动动画
