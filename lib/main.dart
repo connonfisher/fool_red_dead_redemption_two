@@ -209,7 +209,7 @@ class _MainScreenState extends State<MainScreen> {
   </style>
 </head>
 <body>
-  <video id="video" autoplay muted playsinline controls>
+  <video id="video" autoplay playsinline controls>
     <source src="play.mp4" type="video/mp4">
   </video>
 </body>
