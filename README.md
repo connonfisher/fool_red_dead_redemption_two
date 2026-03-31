@@ -11,7 +11,7 @@
 ## 应用截图
 
 ### 启动动画
-![启动动画](assets/images/screenshots/main_screen.png)
+![启动动画](assets/images/screenshots/launch_animation_new.png)
 
 ### 主界面
 ![主界面](assets/images/screenshots/launch_animation.png)
