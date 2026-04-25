@@ -72,14 +72,33 @@ class _SplashScreenState extends State<SplashScreen> {
     * { margin: 0; padding: 0; }
     html, body { width: 100%; height: 100%; background: black; overflow: hidden; display: flex; justify-content: center; align-items: center; }
     video { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .volume-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      border: 2px solid white;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
-  <video id="video" autoplay muted playsinline>
+  <button class="volume-btn" id="volumeBtn">🔇 开启声音</button>
+  <video id="video" autoplay playsinline>
     <source src="head.mp4" type="video/mp4">
   </video>
   <script>
     var video = document.getElementById('video');
+    var volumeBtn = document.getElementById('volumeBtn');
+    var soundEnabled = false;
+    
+    video.muted = true;
+    
     video.onended = function() {
       window.location.href = 'about:blank#ended';
     };
@@ -89,6 +108,23 @@ class _SplashScreenState extends State<SplashScreen> {
     setTimeout(function() {
       window.location.href = 'about:blank#ended';
     }, 15000);
+    
+    volumeBtn.onclick = function() {
+      if (soundEnabled) {
+        video.muted = true;
+        soundEnabled = false;
+        volumeBtn.innerHTML = '🔇 开启声音';
+      } else {
+        video.muted = false;
+        soundEnabled = true;
+        volumeBtn.innerHTML = '🔊 关闭声音';
+      }
+    };
+    
+    video.play().catch(function(error) {
+      video.muted = true;
+      video.play();
+    });
   </script>
 </body>
 </html>''');
@@ -206,12 +242,50 @@ class _MainScreenState extends State<MainScreen> {
     * { margin: 0; padding: 0; }
     html, body { width: 100%; height: 100%; background: black; overflow: hidden; display: flex; justify-content: center; align-items: center; }
     video { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .volume-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      border: 2px solid white;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
+  <button class="volume-btn" id="volumeBtn">🔇 开启声音</button>
   <video id="video" autoplay playsinline controls>
     <source src="play.mp4" type="video/mp4">
   </video>
+  <script>
+    var video = document.getElementById('video');
+    var volumeBtn = document.getElementById('volumeBtn');
+    var soundEnabled = false;
+    
+    video.muted = true;
+    
+    volumeBtn.onclick = function() {
+      if (soundEnabled) {
+        video.muted = true;
+        soundEnabled = false;
+        volumeBtn.innerHTML = '🔇 开启声音';
+      } else {
+        video.muted = false;
+        soundEnabled = true;
+        volumeBtn.innerHTML = '🔊 关闭声音';
+      }
+    };
+    
+    video.play().catch(function(error) {
+      video.muted = true;
+      video.play();
+    });
+  </script>
 </body>
 </html>''');
 
